@@ -1,18 +1,49 @@
 package main
 
 import (
+	"crypto/tls"
+	"crypto/x509"
 	"fmt"
 	"time"
 
-	"golang.org/x/net/context"
+	"github.com/brotherlogic/goserver/utils"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials"
+
+	pb "github.com/brotherlogic/hometaskqueue/proto"
 )
 
-func (s *Server) runComputation(ctx context.Context) error {
-	t := time.Now()
-	sum := 0
-	for i := 0; i < 10000; i++ {
-		sum += i
+func (s *Server) runLoop() error {
+	ctx, cancel := utils.ManualContext("pbu", "pbu", time.Minute, false)
+	defer cancel()
+
+	systemRoots, err := x509.SystemCertPool()
+	if err != nil {
+		return fmt.Errorf("failed to load system root CA cert pool")
 	}
-	s.Log(fmt.Sprintf("Sum is %v -> %v", sum, time.Now().Sub(t).Nanoseconds()/1000000))
+	creds := credentials.NewTLS(&tls.Config{
+		RootCAs: systemRoots,
+	})
+	var opts []grpc.DialOption
+	opts = append(opts, grpc.WithTransportCredentials(creds))
+	conn, err := grpc.Dial("hometaskqueue-q2ijxfqena-uw.a.run.app:443", opts...)
+	if err != nil {
+		return err
+	}
+
+	client := pb.NewHomeTaskQueueServiceClient(conn)
+	if err != nil {
+		return err
+	}
+
+	res, err := client.GetTasks(ctx, &pb.GetTasksRequest{
+		QueueId: s.key,
+	})
+
+	if err != nil {
+		return err
+	}
+
+	s.Log(fmt.Sprintf("Found %v tasks", len(res.GetTasks())))
 	return nil
 }

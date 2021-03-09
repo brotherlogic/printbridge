@@ -96,5 +96,15 @@ func main() {
 		return
 	}
 
+	go func() {
+		for true {
+			err := server.runLoop()
+			if err != nil {
+				server.Log(fmt.Sprintf("Unable to run loop: %v", err))
+			}
+			time.Sleep(time.Hour)
+		}
+	}()
+
 	fmt.Printf("%v", server.Serve())
 }
