@@ -5,17 +5,23 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"time"
 
 	"github.com/brotherlogic/goserver"
+	"github.com/brotherlogic/goserver/utils"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 
 	pbg "github.com/brotherlogic/goserver/proto"
+	kmpb "github.com/brotherlogic/keymapper/proto"
 )
 
 //Server main server type
 type Server struct {
 	*goserver.GoServer
+	key string
 }
 
 // Init builds the server
@@ -66,7 +72,26 @@ func main() {
 	server.PrepServer()
 	server.Register = server
 
-	err := server.RegisterServerV2("printbridge", false, true)
+	ctx, cancel := utils.ManualContext("ghc", "ghc", time.Minute, false)
+	conn, err := server.FDialServer(ctx, "keymapper")
+	if err != nil {
+		if status.Convert(err).Code() == codes.Unknown {
+			log.Fatalf("Cannot reach keymapper: %v", err)
+		}
+		return
+	}
+	client := kmpb.NewKeymapperServiceClient(conn)
+	resp, err := client.Get(ctx, &kmpb.GetRequest{Key: "hometaskqueue_id"})
+	if err != nil {
+		if status.Convert(err).Code() == codes.Unknown || status.Convert(err).Code() == codes.InvalidArgument {
+			log.Fatalf("Cannot read external: %v", err)
+		}
+		return
+	}
+	server.key = resp.GetKey().GetValue()
+	cancel()
+
+	err = server.RegisterServerV2("printbridge", false, true)
 	if err != nil {
 		return
 	}
