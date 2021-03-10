@@ -45,6 +45,28 @@ func (s *Server) getLastRun() (int64, error) {
 	return val, nil
 }
 
+func (s *Server) setLastRun(val int64) error {
+	ctx, cancel := utils.ManualContext("ghc", "ghc", time.Minute, false)
+	conn, err := s.FDialServer(ctx, "keymapper")
+	if err != nil {
+		if status.Convert(err).Code() == codes.Unknown {
+			log.Fatalf("Cannot reach keymapper: %v", err)
+		}
+		return err
+	}
+	client := kmpb.NewKeymapperServiceClient(conn)
+	_, err = client.Set(ctx, &kmpb.SetRequest{Key: "hometaskqueue_last", Value: fmt.Sprintf("%v", val)})
+	if err != nil {
+		if status.Convert(err).Code() == codes.Unknown || status.Convert(err).Code() == codes.InvalidArgument {
+			log.Fatalf("Cannot read external: %v", err)
+		}
+		return err
+	}
+	cancel()
+
+	return nil
+}
+
 func (s *Server) runLoop() error {
 	val, err := s.getLastRun()
 	if err != nil {
@@ -86,6 +108,18 @@ func (s *Server) runLoop() error {
 		s.Log(fmt.Sprintf("Found %v tasks", len(res.GetTasks())))
 	} else {
 		s.Log(fmt.Sprintf("Found %v tasks -> %v", len(res.GetTasks()), res.GetTasks()[0].GetDateAdded()))
+
+		oldest := res.GetTasks()[0].GetDateAdded()
+		for _, task := range res.GetTasks() {
+			if task.GetDateAdded() > oldest {
+				oldest = task.GetDateAdded()
+			}
+		}
+
+		err = s.setLastRun(oldest)
+		if err != nil {
+			return err
+		}
 	}
 
 	return nil
