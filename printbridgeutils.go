@@ -44,6 +44,11 @@ func (s *Server) runLoop() error {
 		return err
 	}
 
-	s.Log(fmt.Sprintf("Found %v tasks", len(res.GetTasks())))
+	if len(res.GetTasks()) == 0 {
+		s.Log(fmt.Sprintf("Found %v tasks", len(res.GetTasks())))
+	} else {
+		s.Log(fmt.Sprintf("Found %v tasks -> %v", len(res.GetTasks()), res.GetTasks()[0].GetDateAdded()))
+	}
+
 	return nil
 }
