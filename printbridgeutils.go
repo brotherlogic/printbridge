@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/brotherlogic/goserver/utils"
@@ -15,7 +16,9 @@ import (
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/status"
 
+	ghpb "github.com/brotherlogic/githubcard/proto"
 	pb "github.com/brotherlogic/hometaskqueue/proto"
+	ppb "github.com/brotherlogic/printer/proto"
 )
 
 func (s *Server) getLastRun() (int64, error) {
@@ -67,6 +70,42 @@ func (s *Server) setLastRun(val int64) error {
 	return nil
 }
 
+func (s *Server) print(task *pb.Task) error {
+	ctx, cancel := utils.ManualContext("pb-print", "pb-print", time.Minute, false)
+	defer cancel()
+	conn, err := s.FDialServer(ctx, "printer")
+	if err != nil {
+		if status.Convert(err).Code() == codes.Unknown {
+			log.Fatalf("Cannot reach printer: %v", err)
+		}
+		return err
+	}
+	client := ppb.NewPrintServiceClient(conn)
+	_, err = client.Print(ctx, &ppb.PrintRequest{
+		Lines: strings.Split(task.GetBody(), "\n"),
+	})
+	return err
+}
+
+func (s *Server) github(task *pb.Task) error {
+	ctx, cancel := utils.ManualContext("pb-github", "pb-github", time.Minute, false)
+	defer cancel()
+	conn, err := s.FDialServer(ctx, "githubcard")
+	if err != nil {
+		if status.Convert(err).Code() == codes.Unknown {
+			log.Fatalf("Cannot reach printer: %v", err)
+		}
+		return err
+	}
+	client := ghpb.NewGithubClient(conn)
+	_, err = client.AddIssue(ctx, &ghpb.Issue{
+		Title:   task.GetTitle(),
+		Body:    task.GetBody(),
+		Service: task.GetComponent(),
+	})
+	return err
+}
+
 func (s *Server) runLoop() error {
 	val, err := s.getLastRun()
 	if err != nil {
@@ -113,6 +152,17 @@ func (s *Server) runLoop() error {
 		for _, task := range res.GetTasks() {
 			if task.GetDateAdded() > oldest {
 				oldest = task.GetDateAdded()
+			}
+
+			var err error
+			if task.GetType() == pb.TaskType_PRINTER {
+				err = s.print(task)
+			} else if task.GetType() == pb.TaskType_GITHUB {
+				err = s.github(task)
+			}
+
+			if err != nil {
+				return err
 			}
 		}
 
