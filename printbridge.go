@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
-	"strconv"
 	"time"
 
 	"github.com/brotherlogic/goserver"
@@ -60,33 +59,6 @@ func (s *Server) GetState() []*pbg.State {
 	}
 }
 
-func (s *Server) getNextRunTime() (time.Time, error) {
-	ctx, cancel := utils.ManualContext("ghc", "ghc", time.Minute, false)
-	defer cancel()
-	conn, err := s.FDialServer(ctx, "keymapper")
-	if err != nil {
-		if status.Convert(err).Code() == codes.Unknown {
-			log.Fatalf("Cannot reach keymapper: %v", err)
-		}
-		return time.Now(), err
-	}
-	client := kmpb.NewKeymapperServiceClient(conn)
-	resp, err := client.Get(ctx, &kmpb.GetRequest{Key: "hometaskqueue_time"})
-	if err != nil {
-		if status.Convert(err).Code() == codes.Unknown || status.Convert(err).Code() == codes.InvalidArgument {
-			log.Fatalf("Cannot read external: %v", err)
-		}
-		return time.Now(), err
-	}
-
-	p, err := strconv.ParseInt(resp.Key.GetValue(), 10, 64)
-	if err != nil {
-		return time.Now(), err
-	}
-
-	return time.Unix(p, 0).Add(time.Hour), nil
-}
-
 func main() {
 	var quiet = flag.Bool("quiet", false, "Show all output")
 	flag.Parse()
@@ -127,8 +99,7 @@ func main() {
 	go func() {
 		for true {
 			done, err := server.Elect()
-			val, err := server.getNextRunTime()
-			if err == nil && time.Now().After(val) {
+			if err == nil {
 				err = server.runLoop()
 				if err != nil {
 					server.Log(fmt.Sprintf("Unable to run loop: %v", err))
@@ -136,12 +107,7 @@ func main() {
 			}
 			done()
 
-			val, err = server.getNextRunTime()
-			if err != nil {
-				time.Sleep(time.Hour)
-			} else {
-				time.Sleep(val.Sub(time.Now()))
-			}
+			time.Sleep(time.Hour)
 		}
 	}()
 
