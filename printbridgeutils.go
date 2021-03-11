@@ -49,6 +49,7 @@ func (s *Server) getLastRun() (int64, error) {
 }
 
 func (s *Server) setLastRun(val int64) error {
+	s.Log(fmt.Sprintf("Setting: %v", val))
 	ctx, cancel := utils.ManualContext("ghc", "ghc", time.Minute, false)
 	conn, err := s.FDialServer(ctx, "keymapper")
 	if err != nil {
