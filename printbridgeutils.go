@@ -146,7 +146,7 @@ func (s *Server) runLoop() error {
 	}
 
 	if len(res.GetTasks()) == 0 {
-		s.Log(fmt.Sprintf("Found %v tasks", len(res.GetTasks())))
+		s.Log(fmt.Sprintf("Found %v tasks (%v)", len(res.GetTasks()), val))
 	} else {
 
 		oldest := res.GetTasks()[0].GetDateAdded()
