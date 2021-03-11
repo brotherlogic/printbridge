@@ -23,7 +23,9 @@ import (
 
 func (s *Server) getLastRun() (int64, error) {
 	ctx, cancel := utils.ManualContext("ghc", "ghc", time.Minute, false)
+	defer cancel()
 	conn, err := s.FDialServer(ctx, "keymapper")
+	defer conn.Close()
 	if err != nil {
 		if status.Convert(err).Code() == codes.Unknown {
 			log.Fatalf("Cannot reach keymapper: %v", err)
@@ -38,7 +40,6 @@ func (s *Server) getLastRun() (int64, error) {
 		}
 		return -1, err
 	}
-	cancel()
 
 	val, err := strconv.ParseInt(resp.Key.GetValue(), 10, 64)
 	if err != nil {
@@ -49,9 +50,10 @@ func (s *Server) getLastRun() (int64, error) {
 }
 
 func (s *Server) setLastRun(val int64) error {
-	s.Log(fmt.Sprintf("Setting: %v", val))
 	ctx, cancel := utils.ManualContext("ghc", "ghc", time.Minute, false)
+	defer cancel()
 	conn, err := s.FDialServer(ctx, "keymapper")
+	defer conn.Close()
 	if err != nil {
 		if status.Convert(err).Code() == codes.Unknown {
 			log.Fatalf("Cannot reach keymapper: %v", err)
@@ -66,7 +68,6 @@ func (s *Server) setLastRun(val int64) error {
 		}
 		return err
 	}
-	cancel()
 
 	return nil
 }
@@ -147,7 +148,6 @@ func (s *Server) runLoop() error {
 	if len(res.GetTasks()) == 0 {
 		s.Log(fmt.Sprintf("Found %v tasks", len(res.GetTasks())))
 	} else {
-		s.Log(fmt.Sprintf("Found %v tasks -> %v (%v)", len(res.GetTasks()), res.GetTasks()[0].GetDateAdded(), val))
 
 		oldest := res.GetTasks()[0].GetDateAdded()
 		for _, task := range res.GetTasks() {
@@ -168,6 +168,7 @@ func (s *Server) runLoop() error {
 		}
 
 		err = s.setLastRun(oldest)
+		s.Log(fmt.Sprintf("Found %v tasks -> %v (%v) now %v (%v)", len(res.GetTasks()), res.GetTasks()[0].GetDateAdded(), val, oldest, err))
 		if err != nil {
 			return err
 		}
