@@ -129,6 +129,7 @@ func (s *Server) runLoop() error {
 	var opts []grpc.DialOption
 	opts = append(opts, grpc.WithTransportCredentials(creds))
 	conn, err := grpc.Dial("hometaskqueue-q2ijxfqena-uw.a.run.app:443", opts...)
+	defer conn.Close()
 	if err != nil {
 		return err
 	}
