@@ -76,6 +76,7 @@ func (s *Server) print(task *pb.Task) error {
 	ctx, cancel := utils.ManualContext("pb-print", "pb-print", time.Minute, false)
 	defer cancel()
 	conn, err := s.FDialServer(ctx, "printer")
+	defer conn.Close()
 	if err != nil {
 		if status.Convert(err).Code() == codes.Unknown {
 			log.Fatalf("Cannot reach printer: %v", err)
@@ -93,6 +94,7 @@ func (s *Server) github(task *pb.Task) error {
 	ctx, cancel := utils.ManualContext("pb-github", "pb-github", time.Minute, false)
 	defer cancel()
 	conn, err := s.FDialServer(ctx, "githubcard")
+	defer conn.Close()
 	if err != nil {
 		if status.Convert(err).Code() == codes.Unknown {
 			log.Fatalf("Cannot reach printer: %v", err)
