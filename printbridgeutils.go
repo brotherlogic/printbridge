@@ -75,14 +75,16 @@ func (s *Server) setLastRun(val int64) error {
 func (s *Server) print(task *pb.Task) error {
 	ctx, cancel := utils.ManualContext("pb-print", "pb-print", time.Minute, false)
 	defer cancel()
+
 	conn, err := s.FDialServer(ctx, "printer")
-	defer conn.Close()
 	if err != nil {
 		if status.Convert(err).Code() == codes.Unknown {
 			log.Fatalf("Cannot reach printer: %v", err)
 		}
 		return err
 	}
+	defer conn.Close()
+
 	client := ppb.NewPrintServiceClient(conn)
 	_, err = client.Print(ctx, &ppb.PrintRequest{
 		Lines: strings.Split(task.GetBody(), "\n"),
