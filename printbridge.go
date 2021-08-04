@@ -98,15 +98,10 @@ func main() {
 
 	go func() {
 		for true {
-			done, err := server.Elect()
-			if err == nil {
 				err = server.runLoop()
 				if err != nil {
 					server.Log(fmt.Sprintf("Unable to run loop: %v", err))
-				}
-			}
-			done()
-
+		
 			time.Sleep(time.Hour)
 		}
 	}()
