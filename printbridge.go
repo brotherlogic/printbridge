@@ -72,7 +72,7 @@ func main() {
 	server.PrepServer()
 	server.Register = server
 
-	ctx, cancel := utils.ManualContext("ghc", "ghc", time.Minute, false)
+	ctx, cancel := utils.ManualContext("ghc", time.Minute)
 	conn, err := server.FDialServer(ctx, "keymapper")
 	if err != nil {
 		if status.Convert(err).Code() == codes.Unknown {
@@ -98,10 +98,10 @@ func main() {
 
 	go func() {
 		for true {
-				err = server.runLoop()
-				if err != nil {
-					server.Log(fmt.Sprintf("Unable to run loop: %v", err))
-		
+			err = server.runLoop()
+			if err != nil {
+				server.Log(fmt.Sprintf("Unable to run loop: %v", err))
+			}
 			time.Sleep(time.Hour)
 		}
 	}()

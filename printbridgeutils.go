@@ -22,7 +22,7 @@ import (
 )
 
 func (s *Server) getLastRun() (int64, error) {
-	ctx, cancel := utils.ManualContext("ghc", "ghc", time.Minute, false)
+	ctx, cancel := utils.ManualContext("ghc", time.Minute)
 	defer cancel()
 	conn, err := s.FDialServer(ctx, "keymapper")
 	defer conn.Close()
@@ -50,7 +50,7 @@ func (s *Server) getLastRun() (int64, error) {
 }
 
 func (s *Server) setLastRun(val int64) error {
-	ctx, cancel := utils.ManualContext("ghc", "ghc", time.Minute, false)
+	ctx, cancel := utils.ManualContext("ghc", time.Minute)
 	defer cancel()
 	conn, err := s.FDialServer(ctx, "keymapper")
 	defer conn.Close()
@@ -73,7 +73,7 @@ func (s *Server) setLastRun(val int64) error {
 }
 
 func (s *Server) print(task *pb.Task) error {
-	ctx, cancel := utils.ManualContext("pb-print", "pb-print", time.Minute, false)
+	ctx, cancel := utils.ManualContext("pb-print", time.Minute)
 	defer cancel()
 
 	conn, err := s.FDialServer(ctx, "printer")
@@ -93,7 +93,7 @@ func (s *Server) print(task *pb.Task) error {
 }
 
 func (s *Server) github(task *pb.Task) error {
-	ctx, cancel := utils.ManualContext("pb-github", "pb-github", time.Minute, false)
+	ctx, cancel := utils.ManualContext("pb-github", time.Minute)
 	defer cancel()
 	conn, err := s.FDialServer(ctx, "githubcard")
 	defer conn.Close()
@@ -118,7 +118,7 @@ func (s *Server) runLoop() error {
 		return err
 	}
 
-	ctx, cancel := utils.ManualContext("pbu", "pbu", time.Minute, false)
+	ctx, cancel := utils.ManualContext("pbu", time.Minute)
 	defer cancel()
 
 	systemRoots, err := x509.SystemCertPool()
