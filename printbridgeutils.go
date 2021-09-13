@@ -73,6 +73,11 @@ func (s *Server) setLastRun(val int64) error {
 }
 
 func (s *Server) print(task *pb.Task) error {
+	// Skip all STO tasks
+	if strings.HasPrefix(task.GetBody(), "STO") {
+		return nil
+	}
+
 	ctx, cancel := utils.ManualContext("pb-print", time.Minute)
 	defer cancel()
 
