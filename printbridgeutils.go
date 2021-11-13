@@ -118,13 +118,19 @@ func (s *Server) github(task *pb.Task) error {
 }
 
 func (s *Server) runLoop() error {
+	ctx, cancel := utils.ManualContext("pbu", time.Minute)
+	defer cancel()
+
+	key, err := s.RunLockingElection(ctx, "printbridgelock")
+	if err != nil {
+		return err
+	}
+	defer s.ReleaseLockingElection(ctx, "printbridgelock", key)
+
 	val, err := s.getLastRun()
 	if err != nil {
 		return err
 	}
-
-	ctx, cancel := utils.ManualContext("pbu", time.Minute)
-	defer cancel()
 
 	systemRoots, err := x509.SystemCertPool()
 	if err != nil {
