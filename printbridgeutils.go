@@ -11,6 +11,7 @@ import (
 
 	"github.com/brotherlogic/goserver/utils"
 	kmpb "github.com/brotherlogic/keymapper/proto"
+	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/credentials"
@@ -72,14 +73,11 @@ func (s *Server) setLastRun(val int64) error {
 	return nil
 }
 
-func (s *Server) print(task *pb.Task) error {
+func (s *Server) print(ctx context.Context, task *pb.Task) error {
 	// Skip all STO tasks
 	if strings.HasPrefix(task.GetBody(), "STO") {
 		return nil
 	}
-
-	ctx, cancel := utils.ManualContext("pb-print", time.Minute)
-	defer cancel()
 
 	conn, err := s.FDialServer(ctx, "printer")
 	if err != nil {
@@ -173,7 +171,7 @@ func (s *Server) runLoop() error {
 
 			var err error
 			if task.GetType() == pb.TaskType_PRINTER {
-				err = s.print(task)
+				err = s.print(ctx, task)
 			} else if task.GetType() == pb.TaskType_GITHUB {
 				err = s.github(task)
 			}
