@@ -119,7 +119,7 @@ func (s *Server) runLoop() error {
 	ctx, cancel := utils.ManualContext("pbu", time.Minute)
 	defer cancel()
 
-	key, err := s.RunLockingElection(ctx, "printbridgelock")
+	key, err := s.RunLockingElection(ctx, "printbridgelock", "Locking to print")
 	if err != nil {
 		return err
 	}
