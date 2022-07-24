@@ -69,7 +69,7 @@ func main() {
 		log.SetOutput(ioutil.Discard)
 	}
 	server := Init()
-	server.PrepServer()
+	server.PrepServer("printbridge")
 	server.Register = server
 
 	ctx, cancel := utils.ManualContext("ghc", time.Minute)
@@ -91,7 +91,7 @@ func main() {
 	server.key = resp.GetKey().GetValue()
 	cancel()
 
-	err = server.RegisterServerV2("printbridge", false, true)
+	err = server.RegisterServerV2(false)
 	if err != nil {
 		return
 	}
