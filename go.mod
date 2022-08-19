@@ -7,6 +7,7 @@ require (
 	github.com/brotherlogic/goserver v0.0.0-20220819181159-c728a3f047e7
 	github.com/brotherlogic/hometaskqueue v0.0.0-20210511233014-12c6b4302523
 	github.com/brotherlogic/keymapper v0.0.0-20220819183155-1a2349967b58
+	github.com/brotherlogic/logging v0.0.0-20220819190406-aaf8b44819cc // indirect
 	github.com/brotherlogic/printer v0.0.0-20220819184928-d20fa9668986
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.11.2 // indirect
 	golang.org/x/net v0.0.0-20220812174116-3211cb980234
