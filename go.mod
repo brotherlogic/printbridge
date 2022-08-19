@@ -3,7 +3,7 @@ module github.com/brotherlogic/printbridge
 go 1.16
 
 require (
-	github.com/brotherlogic/githubcard v0.0.0-20220819183829-46d247f7e8c6
+	github.com/brotherlogic/githubcard v0.0.0-20220819190027-9a4916f3b643
 	github.com/brotherlogic/goserver v0.0.0-20220819181159-c728a3f047e7
 	github.com/brotherlogic/hometaskqueue v0.0.0-20210511233014-12c6b4302523
 	github.com/brotherlogic/keymapper v0.0.0-20220819183155-1a2349967b58
