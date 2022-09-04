@@ -160,7 +160,7 @@ func (s *Server) runLoop() error {
 	}
 
 	if len(res.GetTasks()) == 0 {
-		s.Log(fmt.Sprintf("Found %v tasks (%v)", len(res.GetTasks()), val))
+		s.CtxLog(ctx, fmt.Sprintf("Found %v tasks (%v)", len(res.GetTasks()), val))
 	} else {
 
 		oldest := res.GetTasks()[0].GetDateAdded()
@@ -182,7 +182,7 @@ func (s *Server) runLoop() error {
 		}
 
 		err = s.setLastRun(oldest)
-		s.Log(fmt.Sprintf("Found %v tasks -> %v (%v) now %v (%v)", len(res.GetTasks()), res.GetTasks()[0].GetDateAdded(), val, oldest, err))
+		s.CtxLog(ctx, fmt.Sprintf("Found %v tasks -> %v (%v) now %v (%v)", len(res.GetTasks()), res.GetTasks()[0].GetDateAdded(), val, oldest, err))
 		if err != nil {
 			return err
 		}

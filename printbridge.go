@@ -98,10 +98,12 @@ func main() {
 
 	go func() {
 		for true {
+			ctx, cancel := utils.ManualContext("pb-loop", time.Minute)
 			err = server.runLoop()
 			if err != nil {
-				server.Log(fmt.Sprintf("Unable to run loop: %v", err))
+				server.CtxLog(ctx, fmt.Sprintf("Unable to run loop: %v", err))
 			}
+			cancel()
 			time.Sleep(time.Hour)
 		}
 	}()
