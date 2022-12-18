@@ -4,10 +4,10 @@ go 1.16
 
 require (
 	github.com/brotherlogic/githubcard v0.0.0-20221211032956-b40a80581d2d
-	github.com/brotherlogic/goserver v0.0.0-20221202193151-b0b39691c212
+	github.com/brotherlogic/goserver v0.0.0-20221217002224-0ba5c0213be1
 	github.com/brotherlogic/hometaskqueue v0.0.0-20210511233014-12c6b4302523
-	github.com/brotherlogic/keymapper v0.0.0-20221211033306-26435a9f4b3f
-	github.com/brotherlogic/printer v0.0.0-20221209183447-b5f99e08906b
+	github.com/brotherlogic/keymapper v0.0.0-20221218035325-792eaa54f8fb
+	github.com/brotherlogic/printer v0.0.0-20221218005812-6e96f5029592
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.14.0 // indirect
 	golang.org/x/net v0.4.0
 	google.golang.org/grpc v1.51.0
