@@ -1211,8 +1211,9 @@ github.com/brotherlogic/keymapper v0.0.0-20221211030714-02f427f56f0b/go.mod h1:E
 github.com/brotherlogic/keymapper v0.0.0-20221218035325-792eaa54f8fb/go.mod h1:5VxeOjZdHmUfyPN35BURTI+Pfsjfps0QhvqD57BXwKE=
 github.com/brotherlogic/keymapper v0.0.0-20221218051619-52e9a4494ece/go.mod h1:kWYtqOAGuGO8yp/6ORX5j1GAtnPDJkDh6gsk1wq31xw=
 github.com/brotherlogic/keymapper v0.0.0-20221225062646-cd21d35a034f/go.mod h1:GcY6rc1nczntaTScZaxLzMjXJU84uvTpUsq+qpHlLIQ=
-github.com/brotherlogic/keymapper v0.0.0-20221225062934-58e85e7590d5 h1:Qh5x36QjKJfrYI1wZWyuVYof8bHUODLTMkslne5H0XY=
 github.com/brotherlogic/keymapper v0.0.0-20221225062934-58e85e7590d5/go.mod h1:Tr6caQUwm+GPSpyoGfdCOv/b8VgZrP3dP6lw83NRTVQ=
+github.com/brotherlogic/keymapper v0.0.0-20230101071751-d5a6bc4c825d h1:6ateLdjeow18mhaHT9LeReOqUM+IcuwTSqWkn686wug=
+github.com/brotherlogic/keymapper v0.0.0-20230101071751-d5a6bc4c825d/go.mod h1:QOMBxCgHUkadk5Kfl1/VdusjM622Yg9tcUYKMiaspTI=
 github.com/brotherlogic/keystore v0.0.0-20201029130503-da423c07fd79/go.mod h1:L2AuADQh5H+ZZAZ/8y5zUf819ApTMmM6/L3/2GNI/qY=
 github.com/brotherlogic/keystore v0.0.0-20220215170353-4219588ef922/go.mod h1:dJJAOhxJ7Qy5MsynUsCopKouMhrSuk0BxK+qZP6hnxU=
 github.com/brotherlogic/keystore v0.0.0-20220228151757-f026ce254d87/go.mod h1:oDo4Ia4qBmFuPNVUY+a4jTLLPiTI5ALg67S7VIY6hgs=
