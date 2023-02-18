@@ -10,6 +10,6 @@ require (
 	github.com/brotherlogic/keystore v0.0.0-20230108052654-392c7a9b9675 // indirect
 	github.com/brotherlogic/printer v0.0.0-20230108022149-cde29d1d72c7
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.15.0 // indirect
-	golang.org/x/net v0.5.0
+	golang.org/x/net v0.7.0
 	google.golang.org/grpc v1.51.0
 )
