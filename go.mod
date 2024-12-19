@@ -3,10 +3,10 @@ module github.com/brotherlogic/printbridge
 go 1.23.2
 
 require (
-	github.com/brotherlogic/githubcard v0.0.0-20241212004533-a1205378e6b4
+	github.com/brotherlogic/githubcard v0.0.0-20241219020247-d0dbb89acc81
 	github.com/brotherlogic/goserver v0.0.0-20240826215223-fccbac46b3d4
 	github.com/brotherlogic/hometaskqueue v0.0.0-20210511233014-12c6b4302523
-	github.com/brotherlogic/keymapper v0.0.0-20241218194000-d1ee4fb61480
+	github.com/brotherlogic/keymapper v0.0.0-20241219024401-165d307c671a
 	github.com/brotherlogic/printer v0.0.0-20241113104714-f0284b972b47
 	golang.org/x/net v0.33.0
 	google.golang.org/grpc v1.69.2
