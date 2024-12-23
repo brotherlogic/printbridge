@@ -3,10 +3,10 @@ module github.com/brotherlogic/printbridge
 go 1.23.2
 
 require (
-	github.com/brotherlogic/githubcard v0.0.0-20241223094254-cecf9a3824ed
+	github.com/brotherlogic/githubcard v0.0.0-20241223154431-5bf3f39c8de4
 	github.com/brotherlogic/goserver v0.0.0-20240826215223-fccbac46b3d4
 	github.com/brotherlogic/hometaskqueue v0.0.0-20210511233014-12c6b4302523
-	github.com/brotherlogic/keymapper v0.0.0-20241223084159-b2a19ea5a8f0
+	github.com/brotherlogic/keymapper v0.0.0-20241223154514-ea8ef0d531da
 	github.com/brotherlogic/printer v0.0.0-20241113104714-f0284b972b47
 	golang.org/x/net v0.33.0
 	google.golang.org/grpc v1.69.2
@@ -40,7 +40,7 @@ require (
 	github.com/struCoder/pidusage v0.2.1 // indirect
 	golang.org/x/sys v0.28.0 // indirect
 	golang.org/x/text v0.21.0 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20241219192143-6b3ec007d9bb // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20241219192143-6b3ec007d9bb // indirect
-	google.golang.org/protobuf v1.36.0 // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20241223144023-3abc09e42ca8 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20241223144023-3abc09e42ca8 // indirect
+	google.golang.org/protobuf v1.36.1 // indirect
 )
