@@ -3,10 +3,10 @@ module github.com/brotherlogic/printbridge
 go 1.23.2
 
 require (
-	github.com/brotherlogic/githubcard v0.0.0-20241225114239-9ab179f31e7a
+	github.com/brotherlogic/githubcard v0.0.0-20241225185211-41f501ebf2da
 	github.com/brotherlogic/goserver v0.0.0-20240826215223-fccbac46b3d4
 	github.com/brotherlogic/hometaskqueue v0.0.0-20210511233014-12c6b4302523
-	github.com/brotherlogic/keymapper v0.0.0-20241225104322-504c155af5e1
+	github.com/brotherlogic/keymapper v0.0.0-20241225185724-1f98bdb9de88
 	github.com/brotherlogic/printer v0.0.0-20241113104714-f0284b972b47
 	golang.org/x/net v0.33.0
 	google.golang.org/grpc v1.69.2
@@ -14,16 +14,16 @@ require (
 
 require (
 	github.com/beorn7/perks v1.0.1 // indirect
-	github.com/brotherlogic/buildserver v0.0.0-20241225114413-d985e0014e36 // indirect
+	github.com/brotherlogic/buildserver v0.0.0-20241225195941-8f72ea80a0ff // indirect
 	github.com/brotherlogic/datastore v0.0.0-20241220230045-434035a99d2b // indirect
 	github.com/brotherlogic/discovery v0.0.0-20241109204028-02908558af09 // indirect
-	github.com/brotherlogic/dstore v0.0.0-20241225105523-370c8a660bf6 // indirect
+	github.com/brotherlogic/dstore v0.0.0-20241225155727-f878a222825e // indirect
 	github.com/brotherlogic/githubridge v0.2824.0 // indirect
 	github.com/brotherlogic/gobuildslave v0.0.0-20241111085829-8d4e5069a7fd // indirect
 	github.com/brotherlogic/godiscogs v0.0.0-20240522132740-cb2896bb34cb // indirect
 	github.com/brotherlogic/keystore v0.0.0-20240508161349-814b3200b126 // indirect
-	github.com/brotherlogic/lock v0.0.0-20241225124311-e7f0e1e55e77 // indirect
-	github.com/brotherlogic/logging v0.0.0-20241225115512-0d791c92df1e // indirect
+	github.com/brotherlogic/lock v0.0.0-20241225205353-d7ce574a1db6 // indirect
+	github.com/brotherlogic/logging v0.0.0-20241225201405-d08583d22d99 // indirect
 	github.com/brotherlogic/monitor v0.0.0-20221025152653-c10877c5f9e6 // indirect
 	github.com/brotherlogic/recordcollection v0.0.0-20240522132623-301dbfc5ac15 // indirect
 	github.com/brotherlogic/versionserver v0.0.0-20221025154054-c9bcd41be2f2 // indirect
