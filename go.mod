@@ -3,7 +3,7 @@ module github.com/brotherlogic/printbridge
 go 1.23.2
 
 require (
-	github.com/brotherlogic/githubcard v0.0.0-20241228120123-1b7cedd441c7
+	github.com/brotherlogic/githubcard v0.0.0-20241228135926-0696d655dca0
 	github.com/brotherlogic/goserver v0.0.0-20240826215223-fccbac46b3d4
 	github.com/brotherlogic/hometaskqueue v0.0.0-20210511233014-12c6b4302523
 	github.com/brotherlogic/keymapper v0.0.0-20241228115843-207b7827e9ab
@@ -17,7 +17,7 @@ require (
 	github.com/brotherlogic/buildserver v0.0.0-20241228120227-5d50d615c107 // indirect
 	github.com/brotherlogic/datastore v0.0.0-20241220230045-434035a99d2b // indirect
 	github.com/brotherlogic/discovery v0.0.0-20241109204028-02908558af09 // indirect
-	github.com/brotherlogic/dstore v0.0.0-20241228120813-90afbd424a22 // indirect
+	github.com/brotherlogic/dstore v0.0.0-20241228130817-152b4e5cc329 // indirect
 	github.com/brotherlogic/githubridge v0.2824.0 // indirect
 	github.com/brotherlogic/gobuildslave v0.0.0-20241111085829-8d4e5069a7fd // indirect
 	github.com/brotherlogic/godiscogs v0.0.0-20240522132740-cb2896bb34cb // indirect
