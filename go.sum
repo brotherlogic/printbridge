@@ -75,8 +75,8 @@ github.com/brotherlogic/goserver v0.0.0-20250123145056-95c6fbb2310a h1:rni9hUmBP
 github.com/brotherlogic/goserver v0.0.0-20250123145056-95c6fbb2310a/go.mod h1:QbrdZ+d2/FKUG5c9BmQS3yXssOTMOb0nlZyZNcS0UMM=
 github.com/brotherlogic/hometaskqueue v0.0.0-20210511233014-12c6b4302523 h1:8KPIXWnPMpZqRtgjgixTxfw05kxUIt79+O2bGTEabP8=
 github.com/brotherlogic/hometaskqueue v0.0.0-20210511233014-12c6b4302523/go.mod h1:YMzEQ/wosep6y3bvt2xauCD3efUD4ulI5ho4pIW2iq4=
-github.com/brotherlogic/keymapper v0.0.0-20250129011748-a9a7b8c840b1 h1:cKI4xoPLTC8YgGAT3cNoMRszCadYzlu4NnH/Kx8RfXQ=
-github.com/brotherlogic/keymapper v0.0.0-20250129011748-a9a7b8c840b1/go.mod h1:HPjE4T1GLfL+wGnZwQW06rxgcwlia0KF7PpNEcNo2Lw=
+github.com/brotherlogic/keymapper v0.0.0-20250129070945-21c1378c0e0c h1:LmKUUWvS0rYkz3oZqqrgFLD/4j2e7prQmZC4hMaZj5M=
+github.com/brotherlogic/keymapper v0.0.0-20250129070945-21c1378c0e0c/go.mod h1:MvoZryLDKnIYJLoTaFujrWKSjqbdn18d+SLRjFehIYg=
 github.com/brotherlogic/keystore v0.0.0-20240508161349-814b3200b126 h1:6e12Cl80VtMghgEyTyx1tZB1mUSSBHeLhKvikwb7kIQ=
 github.com/brotherlogic/keystore v0.0.0-20240508161349-814b3200b126/go.mod h1:2JK2kJhI5ler7e7M1WtIpIkiNGG2qy8V6X7VZLCsd5k=
 github.com/brotherlogic/lock v0.0.0-20250128233444-62836104f4ad h1:Qqa62qhHMecpXPKWnQlFfyTrPe0DsynjUayaGBNbZ80=
