@@ -3,10 +3,10 @@ module github.com/brotherlogic/printbridge
 go 1.23.2
 
 require (
-	github.com/brotherlogic/githubcard v0.0.0-20250216223443-f1da6f236980
+	github.com/brotherlogic/githubcard v0.0.0-20250217104617-47cf6926234f
 	github.com/brotherlogic/goserver v0.0.0-20250123145056-95c6fbb2310a
 	github.com/brotherlogic/hometaskqueue v0.0.0-20210511233014-12c6b4302523
-	github.com/brotherlogic/keymapper v0.0.0-20250217033042-a42198a6f6d7
+	github.com/brotherlogic/keymapper v0.0.0-20250217113558-6cd245e4a8f4
 	github.com/brotherlogic/printer v0.0.0-20250204221338-4aab7ca70cbc
 	golang.org/x/net v0.35.0
 	google.golang.org/grpc v1.70.0
@@ -17,13 +17,13 @@ require (
 	github.com/brotherlogic/buildserver v0.0.0-20250206161325-2dc127ca1bb4 // indirect
 	github.com/brotherlogic/datastore v0.0.0-20250113225754-a9cab19c721e // indirect
 	github.com/brotherlogic/discovery v0.0.0-20241109204028-02908558af09 // indirect
-	github.com/brotherlogic/dstore v0.0.0-20250217024729-a3c48ecfcd10 // indirect
+	github.com/brotherlogic/dstore v0.0.0-20250217113041-abcb57c1575e // indirect
 	github.com/brotherlogic/githubridge v0.2848.0 // indirect
-	github.com/brotherlogic/gobuildslave v0.0.0-20250217033041-3557285da5a6 // indirect
+	github.com/brotherlogic/gobuildslave v0.0.0-20250217113516-95de94ad4176 // indirect
 	github.com/brotherlogic/godiscogs v0.0.0-20240522132740-cb2896bb34cb // indirect
 	github.com/brotherlogic/keystore v0.0.0-20240508161349-814b3200b126 // indirect
-	github.com/brotherlogic/lock v0.0.0-20250217022926-2046e9f2e4aa // indirect
-	github.com/brotherlogic/logging v0.0.0-20250217025341-219a956a051e // indirect
+	github.com/brotherlogic/lock v0.0.0-20250217103310-d4b9d1d6b98c // indirect
+	github.com/brotherlogic/logging v0.0.0-20250217113106-09da633d1c86 // indirect
 	github.com/brotherlogic/monitor v0.0.0-20221025152653-c10877c5f9e6 // indirect
 	github.com/brotherlogic/recordcollection v0.0.0-20240522132623-301dbfc5ac15 // indirect
 	github.com/brotherlogic/versionserver v0.0.0-20221025154054-c9bcd41be2f2 // indirect
