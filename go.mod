@@ -3,11 +3,11 @@ module github.com/brotherlogic/printbridge
 go 1.23.2
 
 require (
-	github.com/brotherlogic/githubcard v0.0.0-20250313130537-b32e0f9a61f4
+	github.com/brotherlogic/githubcard v0.0.0-20250313160503-7d0a867ca46b
 	github.com/brotherlogic/goserver v0.0.0-20250123145056-95c6fbb2310a
 	github.com/brotherlogic/hometaskqueue v0.0.0-20210511233014-12c6b4302523
-	github.com/brotherlogic/keymapper v0.0.0-20250313130405-ab710fb32714
-	github.com/brotherlogic/printer v0.0.0-20250313124907-e1c5c5ff1885
+	github.com/brotherlogic/keymapper v0.0.0-20250313160348-5d328eda5626
+	github.com/brotherlogic/printer v0.0.0-20250313144114-f908cc1708ad
 	golang.org/x/net v0.37.0
 	google.golang.org/grpc v1.71.0
 )
@@ -17,13 +17,13 @@ require (
 	github.com/brotherlogic/buildserver v0.0.0-20250312104212-00c75d4bd632 // indirect
 	github.com/brotherlogic/datastore v0.0.0-20250313015544-917b63bdd6ff // indirect
 	github.com/brotherlogic/discovery v0.0.0-20241109204028-02908558af09 // indirect
-	github.com/brotherlogic/dstore v0.0.0-20250313123047-d5deed072cbf // indirect
+	github.com/brotherlogic/dstore v0.0.0-20250313161629-7c8c9eb1666b // indirect
 	github.com/brotherlogic/githubridge v0.2849.0 // indirect
-	github.com/brotherlogic/gobuildslave v0.0.0-20250313123107-f5991ae520b4 // indirect
+	github.com/brotherlogic/gobuildslave v0.0.0-20250313171943-fa2273e53790 // indirect
 	github.com/brotherlogic/godiscogs v0.0.0-20240522132740-cb2896bb34cb // indirect
 	github.com/brotherlogic/keystore v0.0.0-20240508161349-814b3200b126 // indirect
-	github.com/brotherlogic/lock v0.0.0-20250313130941-9d73dcf445da // indirect
-	github.com/brotherlogic/logging v0.0.0-20250313124854-ed0d44b03b4d // indirect
+	github.com/brotherlogic/lock v0.0.0-20250313180704-4e93f864aa0a // indirect
+	github.com/brotherlogic/logging v0.0.0-20250313180433-657243fd6181 // indirect
 	github.com/brotherlogic/monitor v0.0.0-20221025152653-c10877c5f9e6 // indirect
 	github.com/brotherlogic/recordcollection v0.0.0-20240522132623-301dbfc5ac15 // indirect
 	github.com/brotherlogic/versionserver v0.0.0-20221025154054-c9bcd41be2f2 // indirect
