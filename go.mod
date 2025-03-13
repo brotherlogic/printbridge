@@ -6,7 +6,7 @@ require (
 	github.com/brotherlogic/githubcard v0.0.0-20250313070008-ef0f834d2374
 	github.com/brotherlogic/goserver v0.0.0-20250123145056-95c6fbb2310a
 	github.com/brotherlogic/hometaskqueue v0.0.0-20210511233014-12c6b4302523
-	github.com/brotherlogic/keymapper v0.0.0-20250313055638-7f398b6a145a
+	github.com/brotherlogic/keymapper v0.0.0-20250313070637-f9bce95dba27
 	github.com/brotherlogic/printer v0.0.0-20250313064709-af9fd5b0e0de
 	golang.org/x/net v0.37.0
 	google.golang.org/grpc v1.71.0
