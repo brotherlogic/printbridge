@@ -3,7 +3,7 @@ module github.com/brotherlogic/printbridge
 go 1.23.2
 
 require (
-	github.com/brotherlogic/githubcard v0.0.0-20250314223711-9e54da30a907
+	github.com/brotherlogic/githubcard v0.0.0-20250315003936-e7f0eaf57420
 	github.com/brotherlogic/goserver v0.0.0-20250123145056-95c6fbb2310a
 	github.com/brotherlogic/hometaskqueue v0.0.0-20210511233014-12c6b4302523
 	github.com/brotherlogic/keymapper v0.0.0-20250314213432-7e04c2f5c3ed
@@ -19,10 +19,10 @@ require (
 	github.com/brotherlogic/discovery v0.0.0-20241109204028-02908558af09 // indirect
 	github.com/brotherlogic/dstore v0.0.0-20250314232459-b7d81f0a6cb6 // indirect
 	github.com/brotherlogic/githubridge v0.2849.0 // indirect
-	github.com/brotherlogic/gobuildslave v0.0.0-20250314235624-2d6783d0f310 // indirect
+	github.com/brotherlogic/gobuildslave v0.0.0-20250315003835-8eb5f384e99f // indirect
 	github.com/brotherlogic/godiscogs v0.0.0-20240522132740-cb2896bb34cb // indirect
 	github.com/brotherlogic/keystore v0.0.0-20240508161349-814b3200b126 // indirect
-	github.com/brotherlogic/lock v0.0.0-20250314234312-411fdbcb2e42 // indirect
+	github.com/brotherlogic/lock v0.0.0-20250315004105-66ade078adba // indirect
 	github.com/brotherlogic/logging v0.0.0-20250314231556-ec06d69bd709 // indirect
 	github.com/brotherlogic/monitor v0.0.0-20221025152653-c10877c5f9e6 // indirect
 	github.com/brotherlogic/recordcollection v0.0.0-20240522132623-301dbfc5ac15 // indirect
