@@ -3,27 +3,27 @@ module github.com/brotherlogic/printbridge
 go 1.23.2
 
 require (
-	github.com/brotherlogic/githubcard v0.0.0-20250315134222-0a5cccf1bab3
+	github.com/brotherlogic/githubcard v0.0.0-20250315165626-be88a2cee077
 	github.com/brotherlogic/goserver v0.0.0-20250123145056-95c6fbb2310a
 	github.com/brotherlogic/hometaskqueue v0.0.0-20210511233014-12c6b4302523
-	github.com/brotherlogic/keymapper v0.0.0-20250315135032-b5f99859028d
-	github.com/brotherlogic/printer v0.0.0-20250315130025-4747bbe33322
+	github.com/brotherlogic/keymapper v0.0.0-20250315175844-a41d8b7d4349
+	github.com/brotherlogic/printer v0.0.0-20250315180310-16fc2470a000
 	golang.org/x/net v0.37.0
 	google.golang.org/grpc v1.71.0
 )
 
 require (
 	github.com/beorn7/perks v1.0.1 // indirect
-	github.com/brotherlogic/buildserver v0.0.0-20250315134447-48797798f607 // indirect
+	github.com/brotherlogic/buildserver v0.0.0-20250315175254-9fd7485bbda6 // indirect
 	github.com/brotherlogic/datastore v0.0.0-20250313015544-917b63bdd6ff // indirect
 	github.com/brotherlogic/discovery v0.0.0-20241109204028-02908558af09 // indirect
-	github.com/brotherlogic/dstore v0.0.0-20250315132248-68715aec7ca0 // indirect
+	github.com/brotherlogic/dstore v0.0.0-20250315163936-37d72128b3b9 // indirect
 	github.com/brotherlogic/githubridge v0.2849.0 // indirect
-	github.com/brotherlogic/gobuildslave v0.0.0-20250315134724-6ad1b5640bd7 // indirect
+	github.com/brotherlogic/gobuildslave v0.0.0-20250315175709-9f669b10a977 // indirect
 	github.com/brotherlogic/godiscogs v0.0.0-20240522132740-cb2896bb34cb // indirect
 	github.com/brotherlogic/keystore v0.0.0-20240508161349-814b3200b126 // indirect
-	github.com/brotherlogic/lock v0.0.0-20250315134001-149ef54ee2cd // indirect
-	github.com/brotherlogic/logging v0.0.0-20250315132617-e3df8e47aff4 // indirect
+	github.com/brotherlogic/lock v0.0.0-20250315180509-52a216e9e7cc // indirect
+	github.com/brotherlogic/logging v0.0.0-20250315180026-5a582536db13 // indirect
 	github.com/brotherlogic/monitor v0.0.0-20221025152653-c10877c5f9e6 // indirect
 	github.com/brotherlogic/recordcollection v0.0.0-20240522132623-301dbfc5ac15 // indirect
 	github.com/brotherlogic/versionserver v0.0.0-20221025154054-c9bcd41be2f2 // indirect
