@@ -3,7 +3,7 @@ module github.com/brotherlogic/printbridge
 go 1.23.2
 
 require (
-	github.com/brotherlogic/githubcard v0.0.0-20250318130335-33e8b959ccea
+	github.com/brotherlogic/githubcard v0.0.0-20250318151512-f7c475ff1d1d
 	github.com/brotherlogic/goserver v0.0.0-20250123145056-95c6fbb2310a
 	github.com/brotherlogic/hometaskqueue v0.0.0-20210511233014-12c6b4302523
 	github.com/brotherlogic/keymapper v0.0.0-20250318144849-4871bdee8c9d
@@ -14,12 +14,12 @@ require (
 
 require (
 	github.com/beorn7/perks v1.0.1 // indirect
-	github.com/brotherlogic/buildserver v0.0.0-20250318143304-2a2b9b39d5dc // indirect
+	github.com/brotherlogic/buildserver v0.0.0-20250318151916-756f476eceb1 // indirect
 	github.com/brotherlogic/datastore v0.0.0-20250313015544-917b63bdd6ff // indirect
 	github.com/brotherlogic/discovery v0.0.0-20241109204028-02908558af09 // indirect
 	github.com/brotherlogic/dstore v0.0.0-20250318143843-fd34b35c4b57 // indirect
 	github.com/brotherlogic/githubridge v0.2849.0 // indirect
-	github.com/brotherlogic/gobuildslave v0.0.0-20250318150705-9a28eea041b4 // indirect
+	github.com/brotherlogic/gobuildslave v0.0.0-20250318152433-1742f3487f20 // indirect
 	github.com/brotherlogic/godiscogs v0.0.0-20240522132740-cb2896bb34cb // indirect
 	github.com/brotherlogic/keystore v0.0.0-20240508161349-814b3200b126 // indirect
 	github.com/brotherlogic/lock v0.0.0-20250318150917-9d811d5dc4f5 // indirect
